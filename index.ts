@@ -121,10 +121,7 @@ export const startScrapingKRA = async (PIN: string, token?: string) => {
     await browser.close();
     return data
   } catch(err){
-
   }
 };
 
 startScrapingKRA('A006865771P')
-
-console.log("hi")

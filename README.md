@@ -1,3 +1,3 @@
 # Sevi-Scraper
 
-scraping web for data for Company pin
+Scraping the web for company data based on taxID
