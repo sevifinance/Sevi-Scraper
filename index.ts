@@ -55,10 +55,17 @@ async function scrapData(page) {
   return data
 }
 
-export const startScrapingKRA = async (PIN) => {
+export const startScrapingKRA = async (PIN: string, token?: string) => {
   console.log('PIN:', PIN)
   try {
-    const browser = await puppeteer.launch({ headless: false });
+
+    let browser
+
+    if(token) {
+      browser = await puppeteer.connect({ browserWSEndpoint: `wss://chrome.browserless.io?token=${token}` })
+    } else {
+      browser = await puppeteer.launch({ headless: false });
+    }
 
     console.log("launched browser")
     const page = await browser.newPage();
