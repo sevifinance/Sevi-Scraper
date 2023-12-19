@@ -1,2 +1,3 @@
 # Sevi-Scraper
-scraping web for data
+
+scraping web for data for Company pin
