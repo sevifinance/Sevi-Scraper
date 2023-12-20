@@ -21,6 +21,7 @@ function download_captcha(page) {
 }
 
 async function scrapData(page) {
+  
   const TaxPayerTable = '//*[contains(text(), "Taxpayer Details")]/parent::*/following-sibling::*';
   const pinx = (await page.$x(`${TaxPayerTable}//*[text()="PIN"]/parent::*/following-sibling::*`))[0];
   const taxPayerNamex = (await page.$x(`${TaxPayerTable}//*[text()="Taxpayer Name"]/parent::*/following-sibling::*`))[0];
@@ -57,6 +58,7 @@ async function scrapData(page) {
 
 export const startScrapingKRA = async (PIN: string, token?: string) => {
   console.log('PIN:', PIN)
+  
   try {
 
     let browser
@@ -64,7 +66,10 @@ export const startScrapingKRA = async (PIN: string, token?: string) => {
     if(token) {
       browser = await puppeteer.connect({ browserWSEndpoint: `wss://chrome.browserless.io?token=${token}` })
     } else {
-      browser = await puppeteer.launch({ headless: false });
+      browser = await puppeteer.launch({ 
+        headless: false,
+        devtools: true
+      });
     }
 
     console.log("launched browser")
@@ -73,14 +78,46 @@ export const startScrapingKRA = async (PIN: string, token?: string) => {
     await page.waitForNavigation({ waitUntil: 'networkidle2' });
     console.log("navDone")
     download_captcha(page);
-    await new Promise(r => setTimeout(r, 1500))
+    console.log("done")
+    // await new Promise(r => setTimeout(r, 1500))
+    console.log("set elements")
+    // const element = (await page.$x('#vo.pinNo'))[0];
+    // if (!element) {
+    //   console.error('Failed to find element with ID "vo.pinNo"');
+    //   return;
+    // }
 
-    await page.evaluate((PIN) => {
-      // @ts-ignore
-      document.getElementById('vo.pinNo').value = PIN;
-    }, PIN);
+    // create function for field input value
 
-    console.log("here")
+    // const inputElement = await page.$("#vo.pinNo");
+
+    // Fill the input element with the desired value
+    await inputElement.type('1234567890');
+    
+    // await page.waitForSelector('#vo.pinNo');
+    // await page.type('#vo\\.pinNo', 'your_value_here');
+
+    // await page.$eval('#vo\\.pinNo', (input, value) => {
+    //   input.value = value;
+    // }, 'your_value_here');
+
+    // await page.evaluate(() => {
+    //   // @ts-ignore
+    //   document.getElementById('vo.pinNo').value = 'your_value_here';
+    // });
+
+    // const pinInput = await page.querySelector('#vo.pinNo');
+    // await page.evaluate((PIN) => {
+    //   // @ts-ignore
+    //   document.getElementById('vo.pinNo').value = PIN;
+    // }, PIN);
+
+    // await page.evaluate((PIN) => {
+    //   // @ts-ignore
+    //   document.getElementById('vo.pinNo').value = PIN;
+    // }, PIN);
+
+    // console.log("here")
 
     let wrongValue = false;
     do {

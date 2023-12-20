@@ -2,7 +2,7 @@
   "name": "sevi-scraper",
   "version": "1.0.0",
   "description": "scraping web for data",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "dev": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
