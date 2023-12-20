@@ -1,0 +1,41 @@
+$ ts-node index.ts
+/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+index.ts(7,27): error TS7006: Parameter 'page' implicitly has an 'any' type.
+index.ts(8,30): error TS7006: Parameter 'response' implicitly has an 'any' type.
+index.ts(11,31): error TS7006: Parameter 'file' implicitly has an 'any' type.
+index.ts(12,39): error TS7006: Parameter 'err' implicitly has an 'any' type.
+index.ts(23,26): error TS7006: Parameter 'page' implicitly has an 'any' type.
+index.ts(33,36): error TS7006: Parameter 'e' implicitly has an 'any' type.
+index.ts(34,45): error TS7006: Parameter 'e' implicitly has an 'any' type.
+index.ts(35,42): error TS7006: Parameter 'e' implicitly has an 'any' type.
+index.ts(36,43): error TS7006: Parameter 'e' implicitly has an 'any' type.
+index.ts(39,40): error TS7006: Parameter 'e' implicitly has an 'any' type.
+index.ts(42,38): error TS7006: Parameter 'e' implicitly has an 'any' type.
+index.ts(44,48): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{}'.
+index.ts(64,9): error TS7034: Variable 'browser' implicitly has type 'any' in some locations where its type cannot be determined.
+index.ts(95,11): error TS2552: Cannot find name 'inputElement'. Did you mean 'HTMLInputElement'?
+index.ts(141,32): error TS7006: Parameter 'dialog' implicitly has an 'any' type.
+index.ts(143,15): error TS7005: Variable 'browser' implicitly has an 'any' type.
+
+    at createTSError (/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Object.require.extensions.<computed> [as .ts] (/app/apps/Sevi-Scraper/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12) {
+  diagnosticCodes: [
+    7006, 7006, 7006, 7006,
+    7006, 7006, 7006, 7006,
+    7006, 7006, 7006, 7053,
+    7034, 2552, 7006, 7005
+  ]
+}
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
