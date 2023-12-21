@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "scraping web for data",
   "main": "dist/index.js",
+  "private": true,
   "scripts": {
     "dev": "ts-node index.ts",
-    "build": "tsc",
+    "build": "yarn && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
