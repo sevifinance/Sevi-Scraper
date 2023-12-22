@@ -1,3 +1,5 @@
+import { TaxPayerData } from "./types/return";
+
 const Tesseract = require("tesseract.js");
 const puppeteer = require("puppeteer");
 const path = require("path");
@@ -94,7 +96,7 @@ async function scrapData(page: any) {
   return data;
 }
 
-export const startScrapingKRA = async (PIN: string, token?: string) => {
+export const startScrapingKRA = async (PIN: string, token?: string): Promise<TaxPayerData> => {
   try {
     let browser: any = null
 

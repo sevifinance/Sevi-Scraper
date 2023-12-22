@@ -1,7 +1,2 @@
-export declare const startScrapingKRA: (PIN: string, token?: string) => Promise<{
-    PIN: any;
-    Name: any;
-    StatusPin: any;
-    StatusiTax: any;
-    ObligationDetails: any[];
-}>;
+import { TaxPayerData } from "./types/return";
+export declare const startScrapingKRA: (PIN: string, token?: string) => Promise<TaxPayerData>;
